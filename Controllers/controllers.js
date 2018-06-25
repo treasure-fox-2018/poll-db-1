@@ -10,8 +10,13 @@ class Controllers {
         let insertStatus = Model.insertPoliticans(politicans)
         Views.showMessage(insertStatus)
         //seed data voters
-
+        let voters = Model.seedVoters()
+        let insertVoters = Model.insertVoters(voters)
+        Views.showMessage(insertVoters)
         //seed data votes
+        let votes = Model.seedVotes()
+        let insertVotes = Model.insertVotes(votes)
+        Views.showMessage(insertVotes)
     }
 }
 
