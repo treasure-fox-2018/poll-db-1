@@ -63,7 +63,7 @@ function seedData() {
   console.log('Table has been INSERT from all file CSV')
 }
 
-seedData()
+// seedData()
 
 //REALEASE 2
 //INSERT DATA KE MASING-MASING TABLE
@@ -196,9 +196,9 @@ function displayPoliticiansGrade(partai, first_value, second_value) {
                FROM politicians
                WHERE partai = "${partai}" AND grade_current BETWEEN ${first_value} AND ${second_value}
                ORDER BY name ASC;`
-  db.all(query, function(err, politicians) {
+  db.all(query, function(err, data) {
     if (err) throw err;
-    console.log(politicians)
+    console.log(data)
   })
 }
 
@@ -212,9 +212,9 @@ function displayPoliticiansCount(name) {
   let query = `SELECT COUNT(*) AS totalVote, name FROM politicians INNER JOIN votes
                ON politicians.politicianId = votes.politicianId
                WHERE politicians.name = "${name}";`
-  db.all(query, function(err, politicians) {
+  db.all(query, function(err, data) {
     if (err) throw err;
-    console.log(politicians)
+    console.log(data)
   })
 }
 
@@ -232,9 +232,9 @@ function displayPoliticiansAdam(name) {
   	             ON politicians.politicianId = votes.politicianId
                WHERE politicians.name LIKE "${name}%"
                GROUP BY politicians.name;`
-  db.all(query, function(err, politicians) {
+  db.all(query, function(err, data) {
     if (err) throw err;
-    console.log(politicians)
+    console.log(data)
   })
 }
 
@@ -254,9 +254,9 @@ function displayTop3() {
                GROUP BY politicians.name
                ORDER BY totalVote DESC
                LIMIT 3;`
-  db.all(query, function(err, politicians) {
+  db.all(query, function(err, data) {
     if (err) throw err;
-    console.log(politicians)
+    console.log(data)
   })
 }
 
@@ -276,10 +276,10 @@ function displayWhoVote(name) {
                INNER JOIN politicians
   	            ON politicians.politicianId = votes.politicianId
                WHERE politicians.name = "${name}";`
-  db.all(query, function(err, politicians) {
+  db.all(query, function(err, data) {
     if (err) throw err;
-    console.log(politicians)
+    console.log(data)
   })
 }
 
-// displayWhoVote('Olympia Snowe')
+displayWhoVote('Olympia Snowe')
