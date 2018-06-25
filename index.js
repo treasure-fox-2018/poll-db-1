@@ -7,9 +7,9 @@ let argv = process.argv
 let command = argv[2]
 let queryCommand = argv[3]
 
-if (command === 'seedData') {
+if (command === "seedData") {
     Controllers.seedData()
-} else if (command === 'politician') {
+} else if (command === "politician") {
     let politican = argv.slice(4)
     if (queryCommand === 'insert') {
         Controllers.addNewPolitican(politican)
@@ -19,7 +19,7 @@ if (command === 'seedData') {
         let politicanId = argv[4]
         Controllers.deletePolitican(politicanId)
     }
-} else if (command === 'voters') {
+} else if (command === "voters") {
     let voter = argv.slice(4)
     if (queryCommand === 'insert') {
         Controllers.addNewVoter(voter)
@@ -29,7 +29,7 @@ if (command === 'seedData') {
         let voterId = argv[4]
         Controllers.deleteVoter(voterId)
     }
-} else if (command === 'votes') {
+} else if (command === "votes") {
     let vote = argv.slice(4)
     if (queryCommand === 'insert') {
         Controllers.addNewVote(vote)
@@ -39,4 +39,41 @@ if (command === 'seedData') {
         let voteId = argv[4]
         Controllers.deleteVote(voteId)
     }
+} else if (command === "filter") {
+    if (queryCommand === "1") {
+        Controllers.firstFilter()
+    } else if (queryCommand === "2") {
+        Controllers.secondFilter()
+    } else if (queryCommand === "3") {
+        Controllers.thirdFilter()
+    } else if (queryCommand === "4") {
+        Controllers.fourthFilter()
+    } else if (queryCommand === "5") {
+        Controllers.fifthFilter()
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

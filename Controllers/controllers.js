@@ -69,6 +69,28 @@ class Controllers {
         let deleteVoteMessage = Model.deleteVote(voteId)
         Views.showMessage(deleteVoteMessage)
     }
+
+    // ------         Filters       -------------
+
+    static firstFilter() {
+        let resultOfFilter = Model.getFirstFilter()
+    }
+
+    static secondFilter() {
+        let resultOfFilter = Model.getSecondFilter()
+    }
+
+    static thirdFilter() {
+        let resultOfFilter = Model.getThirdFilter()
+    }
+
+    static fourthFilter() {
+        let resultOfFilter = Model.getFourthFilter()
+    }
+
+    static fifthFilter() {
+        let resultOfFilter = Model.getFifthFilter()
+    }
 }
 
 module.exports = Controllers

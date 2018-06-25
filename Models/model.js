@@ -205,6 +205,84 @@ class Model {
 
         return 'Insert Voters Successfull !'
     }
+
+    // ------         Filters       -------------
+
+    static getFirstFilter() {
+        db.all(`SELECT * FROM politicans WHERE party = "R" AND grade_current BETWEEN 9 AND 11`, function (err, result) {
+            console.log(result);
+        })
+    }
+
+    static getSecondFilter() {
+        db.all(`SELECT name, count(*) AS totalVote
+                  FROM votes
+                  JOIN politicans
+                  ON votes.politicanId = politicans.id
+                  WHERE politicans.name = "Olympia Snowe"`, function (err, result) {
+            console.log(result);
+        })
+    }
+
+    static getThirdFilter() {
+        db.all(`SELECT name, COUNT(politicanId) AS totalCount
+                  FROM votes
+                  JOIN politicans
+                  ON votes.politicanId = politicans.id
+                  WHERE politicans.name LIKE "adam%"
+                  GROUP BY politicans.name`, function (err, result) {
+            console.log(result);
+        })
+    }
+
+    static getFourthFilter() {
+        db.all(`SELECT COUNT(politicanId) AS totalCount, name, party, location
+                  FROM votes
+                  JOIN politicans
+                  ON votes.politicanId = politicans.id
+                  GROUP BY politicans.name
+                  ORDER BY totalCount DESC
+                  LIMIT 3`, function (err, result) {
+            console.log(result);
+        })
+    }
+
+    static getFifthFilter() {
+        db.all(`SELECT first_name, last_name, gender, age, name FROM voters
+                JOIN (
+                    SELECT * FROM votes
+                    JOIN politicans
+                    ON votes.politicanId = politicans.id) AS votes
+                ON voters.id = votes.voterId
+                WHERE votes.name = "Olympia Snowe"`, function (err, result) {
+            console.log(result);
+        })
+    }
 }
 
 module.exports = Model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
