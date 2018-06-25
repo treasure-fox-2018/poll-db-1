@@ -6,6 +6,8 @@ const View = require('../view/view')
 
 class Controller {
 
+  //release 2
+
   static insertPolitician (name, party, location, grade_current) {
     ModelPolitician.insert (name, party, location, grade_current, function callback (newInsertedID) {
       let printData = `Data politician berhasil dimasukkan dengan id ${newInsertedID}`
@@ -67,6 +69,35 @@ class Controller {
       let printData = `Data Vote ${id} berhasil dihapus`
       View.printConsole(printData)
     });
+  }
+
+  //release 3
+  static queryPolitician(noExec) {
+    if (noExec == 1) {
+      ModelPolitician.query1(function(data) {
+        View.printTable(data)
+      })
+    }
+    if (noExec == 2) {
+      ModelPolitician.query2(function(data) {
+        View.printTable(data)
+      })
+    }
+    if (noExec == 3) {
+      ModelPolitician.query3(function(data) {
+        View.printTable(data)
+      })
+    }
+    if (noExec == 4) {
+      ModelPolitician.query4(function(data) {
+        View.printTable(data)
+      })
+    }
+    if (noExec == 5) {
+      ModelPolitician.query5(function(data) {
+        View.printTable(data)
+      })
+    }
   }
   
 }

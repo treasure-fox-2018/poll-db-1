@@ -31,6 +31,17 @@ if(table == 'politician') {
     Controller.deletePolitician(id)
   }
 
+  //query release 3 soal 1,2,3,4,5
+  //example use node index.js politician query 1
+  //example use node index.js politician query 2
+  //example use node index.js politician query 3
+  //example use node index.js politician query 4
+  //example use node index.js politician query 5
+  if (command == 'query') {
+    const noExec = argv[4]
+    Controller.queryPolitician(noExec)
+  }
+
 } else if(table == 'voter') {
     //insert data table voter
    //example use node index.js voter insert budi handuk laki 19
