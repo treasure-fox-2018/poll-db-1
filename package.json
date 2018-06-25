@@ -1,0 +1,21 @@
+{
+  "name": "poll-db-1",
+  "version": "1.0.0",
+  "description": "poll-DB1",
+  "main": "seed-data.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treasure-fox-2018/poll-db-1.git"
+  },
+  "author": "vinesto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treasure-fox-2018/poll-db-1/issues"
+  },
+  "homepage": "https://github.com/treasure-fox-2018/poll-db-1#readme"
+}
