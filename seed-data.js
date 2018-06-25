@@ -118,16 +118,83 @@ function deletePolitician(idPolitician) {
  }
 
 
-addVoters()
-addPoliticians()
-addVotes()
+// addVoters()
+// addPoliticians()
+// addVotes()
 
-addVoters2('Cimz','Ming','Male', 30);
-deletePolitician(90)
-updateVoter(300,'Ming','Ci', 'Male', 23)        
+// addVoters2('Cimz','Ming','Male', 30);
+// deletePolitician(90)
+// updateVoter(300,'Ming','Ci', 'Male', 23)        
 
 
+// release 3
+function politicianBelow9(){
 
+    let query = `SELECT * FROM Politicians WHERE party = 'R' 
+                 AND grade_current  BETWEEN 9 AND 11;`
+    
+    db.all(query,function(err,data){
+        if(err) throw err
+        console.log(data)
+    })
+}
+
+function olympiaVote(){
+
+    let query = `SELECT  COUNT(Votes.idPolitician), name FROM Politicians
+                 JOIN  Votes
+                 ON Politicians.idPolitician = Votes.idPolitician
+                 WHERE name = "Olympia Snowe";`
+    
+    db.all(query,function(err,data){
+        if(err) throw err
+        console.log(data)
+    })
+}
+
+function adamVote(){
+
+    let query = `SELECT  name,COUNT(name) as TotalVote FROM Politicians
+                 JOIN  Votes
+                 ON Politicians.idPolitician = Votes.idPolitician
+                 WHERE Politicians.name LIKE '%adam%' 
+                 GROUP BY name`
+    
+    db.all(query,function(err,data){
+        if(err) throw err
+        console.log(data)
+    })
+}
+
+function maxVote(){
+
+    let query = `SELECT  COUNT(*) AS totalVote,name, party, location FROM Politicians
+                 JOIN  Votes
+                 ON Politicians.idPolitician = Votes.idPolitician
+                 GROUP BY name
+                 ORDER BY totalVote DESC
+                 LIMIT 3`
+    
+    db.all(query,function(err,data){
+        if(err) throw err
+        console.log(data)
+    })
+}
+
+function olypiaVoters(){
+
+    let query = `SELECT first_name, last_name, gender,age FROM Votes
+                 INNER JOIN  Politicians
+                 ON Votes.idPolitician = Politicians.idPolitician 
+                 INNER JOIN Voters
+                 ON Voters.idVoter = Votes.idVoter
+                 WHERE name = 'Olympia Snowe';`
+    
+    db.all(query,function(err,data){
+        if(err) throw err
+        console.log(data)
+    })
+}
 
 /*
 RELEASE 3 :
