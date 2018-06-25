@@ -1,8 +1,7 @@
 //your code here
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('./poll.db');
+const db = require('./db');
 
-function create_and_seed() {
+function create() {
   db.serialize(function() {
     db.run(`CREATE TABLE IF NOT EXISTS Politicians
       (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR,
@@ -13,11 +12,12 @@ function create_and_seed() {
       last_name VARCHAR, gender VARCHAR, age INTEGER)`);
 
     db.run(`CREATE TABLE IF NOT EXISTS Votes
-    (id INTEGER PRIMARY KEY AUTOINCREMENT, politicianId INTEGER,
-    voterId INTEGER, FOREIGN KEY(politicianId) REFERENCES Politicians(id),
-    FOREIGN KEY (voterId) REFERENCES Voters(id))`);
-
+    (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    voterId INTEGER,
+    politicianId INTEGER,
+    FOREIGN KEY (voterId) REFERENCES Voters(id),
+    FOREIGN KEY(politicianId) REFERENCES Politicians(id))`);
   })
 }
 
-create_and_seed()
+create()
