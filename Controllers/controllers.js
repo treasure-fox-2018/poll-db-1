@@ -7,17 +7,83 @@ class Controllers {
     static seedData() {
         //seed data politicans
         let politicans = Model.seedPoliticans()
-        let insertStatus = Model.insertPoliticans(politicans)
-        Views.showMessage(insertStatus)
+        let insertStatusMessage = Model.insertPoliticansCSV(politicans)
+        Views.showMessage(insertStatusMessage)
         //seed data voters
         let voters = Model.seedVoters()
-        let insertVoters = Model.insertVoters(voters)
-        Views.showMessage(insertVoters)
+        let insertVotersMessage = Model.insertVotersCSV(voters)
+        Views.showMessage(insertVotersMessage)
         //seed data votes
         let votes = Model.seedVotes()
-        let insertVotes = Model.insertVotes(votes)
-        Views.showMessage(insertVotes)
+        let insertVotesMessage = Model.insertVotesCSV(votes)
+        Views.showMessage(insertVotesMessage)
+    }
+
+    // ------         Politicians       -------------
+
+    static addNewPolitican(politican) {
+        let addPoliticanMessage = Model.addPolitican(politican)
+        Views.showMessage(addPoliticanMessage)
+    }
+
+    static updatePolitican(politican) {
+        let updatePoliticanMessage = Model.updatePolitican(politican)
+        Views.showMessage(updatePoliticanMessage)
+    }
+
+    static deletePolitican(politicanId) {
+        let deletePoliticanMessage = Model.deletePolitican(politicanId)
+        Views.showMessage(deletePoliticanMessage)
+    }
+
+    // ------         Voters       -------------
+
+    static addNewVoter(voter) {
+        let addVoterMessage = Model.addVoter(voter)
+        Views.showMessage(addVoterMessage)
+    }
+
+    static updateVoter(voter) {
+        let updateVoterMessage = Model.updateVoter(voter)
+        Views.showMessage(updateVoterMessage)
+    }
+
+    static deleteVoter(voterId) {
+        let deleteVoterMessage = Model.deleteVoter(voterId)
+        Views.showMessage(deleteVoterMessage)
+    }
+
+    // ------         Votes       -------------
+
+    static addNewVote(vote) {
+        let addVoteMessage = Model.addVote(vote)
+        Views.showMessage(addVoteMessage)
+    }
+
+    static updateVote(vote) {
+        let updateVoteMessage = Model.updateVote(vote)
+        Views.showMessage(updateVoteMessage)
+    }
+
+    static deleteVote(voteId) {
+        let deleteVoteMessage = Model.deleteVote(voteId)
+        Views.showMessage(deleteVoteMessage)
     }
 }
 
 module.exports = Controllers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
