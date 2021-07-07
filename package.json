@@ -1,0 +1,25 @@
+{
+  "name": "poll-db-1",
+  "version": "1.0.0",
+  "description": "challenge poll-db-1",
+  "main": "seed-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treasure-fox-2018/poll-db-1.git"
+  },
+  "keywords": [
+    "poll-db-1"
+  ],
+  "author": "arisupriatna14",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treasure-fox-2018/poll-db-1/issues"
+  },
+  "homepage": "https://github.com/treasure-fox-2018/poll-db-1#readme",
+  "dependencies": {
+    "sqlite3": "^4.0.1"
+  }
+}
